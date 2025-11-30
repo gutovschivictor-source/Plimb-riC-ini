@@ -323,6 +323,78 @@ document.addEventListener("click", function(e) {
     }
 });
 </script>
+<!-- Header -->
+<header>
+<nav>
+    <div class="logo">
+        <img src="logo-câine.png" alt="Logo Câine" class="header-logo">
+        <span class="logo-text">Plimbări Câini</span>
+    </div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div> <!-- Hamburger -->
+    <ul id="nav-links">
+        <li><a href="#services">Servicii</a></li>
+        <li><a href="#pricing">Prețuri</a></li>
+        <li><a href="#contact">Vizualizează</a></li>
+    </ul>
+</nav>
+</header>
+
+<style>
+/* Hamburger toggle */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #000;
+    user-select: none;
+}
+
+/* Responsive nav */
+@media screen and (max-width: 768px) {
+    nav ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100%;
+        width: 250px;
+        background: #fff;
+        flex-direction: column;
+        gap: 2rem;
+        padding-top: 4rem;
+        transition: right 0.3s ease;
+        box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+        z-index: 1500;
+    }
+    nav ul.active {
+        right: 0;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    nav ul li {
+        font-size: 1.2rem;
+        padding-left: 1rem;
+    }
+}
+</style>
+
+<script>
+// Hamburger toggle
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+menuToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    navLinks.classList.toggle("active");
+});
+
+// Închide meniul când dai click în afara lui
+document.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+});
+navLinks.addEventListener("click", (e) => e.stopPropagation());
+</script>
+
 
 
 </body>
